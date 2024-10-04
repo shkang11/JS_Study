@@ -172,3 +172,108 @@ console.log(numbers.reduce((p, n) => p + n, 0)); // reduce(콜백함수, 초기�
 // reduce() 함수를 사용해서 iveMembers 변수에 있는 모든 스트링 값들의 길이를 더해서 반환하라.
 // 참고로 string의 길이는 .length를 이용해서 구할 수 있다.
 console.log(iveMembers.reduce((p, n) => p + n.length, 0));
+
+
+/**
+ * 아래는 복습정리
+ */
+
+const riizeMembers = [
+  '원빈',
+  '성찬',
+  '쇼타로',
+  '돌자님',
+  '소희',
+  '앤톤',
+];
+
+// mutable - 원 배열을 건든다는 뜻
+console.log(riizeMembers.push('홍승한')); // 배열의 맨 뒤에 추가하고 난 후의 배열 요소 개수
+console.log(riizeMembers);                // mutable 함을 보여줌
+console.log(riizeMembers.pop());          // 배열의 맨 뒤에서 pop된 요소 
+console.log(riizeMembers);                // mutable 함을 보여줌
+
+console.log(riizeMembers.unshift('홍승한')); // 배열의 맨 앞에 추가하고 난 후의 배열 요소 개수
+console.log(riizeMembers);                  // mutable 함을 보여줌
+console.log(riizeMembers.shift());          // 배열의 맨 앞을 shift한 요소
+console.log(riizeMembers);                  // mutable 함을 보여줌
+
+console.log(riizeMembers.splice(3, 3));     // splice(시작인덱스, 자를요소개수) splice함수는 원배열에서 특정 요소들을 잘라서 배열을 만들어 리턴함
+console.log(riizeMembers);                  // mutable 함을 보여줌 splice함수의 영향으로 원배열이 잘린모습을 볼 수 있음
+
+
+// immutable - 원 배열을 건들이지 않음
+const lesserafim = [
+  '김채원',
+  '사쿠라',
+  '허윤진',
+  '카즈하',
+  '홍은채',
+];
+
+console.log(lesserafim.concat('김가람'));  // 배열의 맨마지막에 요소를 추가하여 배열 반환
+console.log(lesserafim);                  // immutable함을 확인
+console.log(lesserafim.slice(2, 5));      // slice(시작인덱스, 끝인덱스+1)   
+console.log(lesserafim);                  // immutable함을 확인
+
+const lesserafim2 = [    // 이렇게 넣으면 배열안에 배열임
+  lesserafim,
+];
+console.log(lesserafim2);     
+console.log(lesserafim2[0][1]);
+
+// spread operator - immutable
+const lesserafim3 = [   // 배열의 [] 를 부시고 배열에 원소들을 넣을 수 있음
+  ...lesserafim,
+];
+console.log(lesserafim3);
+console.log(lesserafim3 === lesserafim); // 둘은 다름 immutable함
+
+// join함수 문자열로 묶을 때 쓰는 함수
+console.log(lesserafim.join()); // join함수는 배열의 원소들을 콤마(디폴트)로 붙인 문자열 리턴
+console.log(lesserafim.join(', ')); // 구분자를 지정해 줄 수 있음
+console.log(lesserafim.join('/'));
+
+// sort() - mutable
+console.log(lesserafim.sort()); // sort함수의 리턴값은 원래 배열을 sort하여 리턴(원래배열을 리턴함 lesserafim.sort() === lesserafim -> true)
+console.log(lesserafim);        // 원배열을 건듦 mutable 한 특징이다.
+/**
+ * sort((a, b) => {})
+ * sort함수에 매개변수로 함수를 넣을 수 있다.
+ * 규칙 3가지 (a와 b가 무슨 값이 든지 상관하지 않음)
+ * 1) a, b 중 a가 먼저 나와야 할 때 0보다 작은 값을 리턴 하면 된다.
+ * 2) a, b 중 a가 나중에 나와야 할 때 0보다 큰 값을 리턴 하면 된다.
+ * 3) 순서를 그대로 하고 싶다면 0을 리턴
+ */
+console.log(lesserafim.sort((a, b) => {
+  return a > b? -1: 1;
+}));
+
+console.log(lesserafim.sort((a, b) => a < b? -1: 1));
+
+// reverse() - mutable
+console.log(lesserafim.reverse()); //reverse함수의 리턴값은 원래 배열을 reverse하여 리턴(원래배열을 리턴함 lesserafim.reverse() === lesserafim -> true)
+console.log(lesserafim);           // 원배열을 건듦 mutable 한 특징
+
+// map() - immutable
+// 리턴값들로 배열을 만들어 리턴
+// 원 배열에 영향이 없음 immutable
+console.log(lesserafim.map((x) => x === '카즈하'? `르세라핌: ${x}`: '무수리'));
+
+// filter() - immutable
+// return 값이 true인 x들을 모아 배열로 만들어 리턴
+console.log(lesserafim.filter((x) => x.includes('채')));
+
+console.log(riizeMembers);
+// find() 
+// return 값이 true인 첫번째 x를 리턴
+console.log(riizeMembers.find((x) => x.length == 3));
+
+// findIndex()
+// return 값이 true인 첫번째 x의 인덱스를 리턴
+console.log(riizeMembers.findIndex((x) => x.length === 3));
+
+// reduce(콜백함수(p, n)=>{}, 시작값)
+// p는 누적값 n은 모든 요소 순회
+const num = [1, 3, 4, 5, 6];
+console.log(num.reduce((p, n) => p * n, 1));
