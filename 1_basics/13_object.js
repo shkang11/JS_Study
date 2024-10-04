@@ -71,6 +71,18 @@ console.log(Object.keys(wonYoung)); // Object객체의 key값들의 배열로 �
  */
 console.log(Object.values(wonYoung)); //Object객체의 value값들의 배열로 반환
 
+// 매개변수 설정에 따라 다른 arguments 출력
+(function test(x, y, z) {
+  console.log(arguments); // [Arguments] {key : value pair...}  object형태로 반환됨
+  
+  // Object.values(arguments) arguments object의 value값들을 모은 배열
+  console.log(Object.values(arguments).reduce((p, n) => p * n, 1)); 
+})(1, 2, 3);
+
+(function test2(...arguments) {
+  console.log(arguments);  // [들어온 인자들의 array형태] 배열 형태로 반환 
+})(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
 const name = '안유진';
 const yuJin3 = {
   name, // name: name 과 같음
