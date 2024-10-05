@@ -61,13 +61,14 @@ console.log(sooBin.year);
 
 console.log(Object.getOwnPropertyDescriptor(sooBin, 'age'));
 
-// 일반적으로 키 값 추가 할 때
+// 일반적으로 키 값 추가 할 때 - 디폴트가 writable: true, enumerable: true, configurable: true
 sooBin['height'] = 183;
 console.log(sooBin);
 console.log(Object.getOwnPropertyDescriptor(sooBin, 'height'));
 // { value: 183, writable: true, enumerable: true, configurable: true }
 
 // 키 값 추가 시 원하는 대로 프로퍼티 어트리뷰트를 재정의 하고 싶으면 아래와 같이 추가
+// defineProperty 함수의 디폴트가 writable: false, enumerable: false, configurable: false
 Object.defineProperty(sooBin, 'keyWanted', {
   value: '원하는값',
   writable: true,
