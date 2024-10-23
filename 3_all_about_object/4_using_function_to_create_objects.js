@@ -9,9 +9,9 @@ function IdolFunction(name, year) {
   //                           // 아니라면 undefined 반환
 
   // new키워드 없이 호출 했을 때 new키워드로 생성하여 만들어진 객체 반환해줌
-  if(!new.target) {
-    return new IdolFunction(name, year);
-  }
+  // if(!new.target) {
+  //   return new IdolFunction(name, year);
+  // }
   this.name = name;
   this.year = year;
   this.dance = function() {
@@ -48,8 +48,8 @@ console.log(sungChan);
 // this키워드가 global에 붙어버려서 global의 값들을 설정하게 되어버린다.
 const wonBin = IdolFunction('원빈', 2002);
 console.log(wonBin);
-// console.log(global.name);
-// console.log(global.dance());
+console.log(global.name);
+console.log(global.dance());
 
 
 // 화살표 함수는 생성자 함수가 될 수 있는가??

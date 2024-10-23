@@ -13,6 +13,7 @@ class IdolModel {
 
   // 메소드: 클래스 내부의 함수를 메소드라고 부른다.
   // 메소드는 function 키워드 없이 사용자가 지정한 이름으로 정의 한다.
+  
   sayName() {
     return `안녕하세요 저는 ${this.name}입니다.`;
   }

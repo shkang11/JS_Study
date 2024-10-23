@@ -36,7 +36,7 @@ function multiply(x, y) {
   console.log(x * y);
 }
 
-multiply(2, 4);;
+multiply(2, 4);
 multiply(2);                    // 덮어쓰여진거로 먹혀야됨
 function multiply(x, y = 10) {  // 덮어쓰기가됨
   console.log(x * y);

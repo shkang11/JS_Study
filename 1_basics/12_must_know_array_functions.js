@@ -149,7 +149,7 @@ console.log(numbers.find((x) => x % 2 === 0));
 // findIndex()
 // findIndex는 리턴값이 true가 되는 첫번째 x값의 인덱스를 반환하라.
 // find함수는 값을 찾았지만 findIndex는 그 찾은 첫번째 값의 인덱스다.
-console.log(numbers.find((x) => x % 2 === 0));
+console.log(numbers.findIndex((x) => x % 2 === 0));
 
 // reduce()     모든값을 곱하거나, 더하거나, 나누거나 이런 행위 가능한 함수
 console.log(numbers.reduce((p, n) => p + n, 0)); // reduce(콜백함수, 초기값) 으로 2개의 파라미터 필요
