@@ -31,8 +31,11 @@ console.log(yuJin.__proto__);
 console.log(yuJin.__proto__ === IdolModel.prototype);
 console.log(testObj.__proto__ === Object.prototype);
 console.log(IdolModel.__proto__ === Function.prototype);
-console.log(Function.prototype.__proto__ === Object.prototype);
+console.log(Function.__proto__ === Function.prototype);
+console.log(Object.__proto__ === Function.prototype);
 console.log(IdolModel.prototype.__proto__ === Object.prototype);
+console.log(Function.prototype.__proto__ === Object.prototype);
+// console.log(Object.prototype.__proto__); // null
 
 console.log(yuJin.toString());  // 어떻게든 객체를 생성하게되면 공통적으로 사용할 수 있는 메소드인 toString()
 console.log(Object.prototype.toString()); // yuJin객체는 IdolModel.prototype을 상속받음  yuJin.__proto__ === IdolModel.prototype
