@@ -165,6 +165,7 @@ console.log(haneul.constructor === FemaleIdolModel);
 console.log(natty.constructor === IdolModel);
 console.log(Object.getPrototypeOf(haneul) === FemaleIdolModel.prototype); // false
 console.log(Object.getPrototypeOf(haneul) === IdolModel.prototype);     //true 부모바꿔서 이게 true임
+console.log(FemaleIdolModel.prototype === IdolModel.prototype);         // false
 // haneul 생성 시 존재하는 FemaleIdolModel.prototype이 IdolModel.prototype으로 변경된게 아니라
 // FemaleIdolModel.prototype은 유지 됐지만 FemaleIdolModel.prototype과 haneul 객체와의 연결만 끊기고 IdolModel.prototype과 haneul과의 연결이 생긴것
 
