@@ -1,0 +1,17 @@
+<script>
+  function getNumber() {
+    var number = 5;
+
+    function innerGetNumber() {
+      return number;
+    }
+
+    return innerGetNumber;
+  }
+
+  var runner = getNumber();
+  console.log(runner());
+  // 이게 바로 클로저 예시
+  // 상위함수가 하위함수를 반환함으로써 상위함수가 먼저 실행이 끝나고 하위함수를 나중에 실행할수있는
+  // 상위함수보다 하위함수가 더 오래 살아있음
+</script>
